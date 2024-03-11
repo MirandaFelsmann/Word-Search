@@ -64,7 +64,16 @@ button:hover, select:hover {
         <option id="lacrosse">Lacrosse</option>
     </select>
     <button onclick="generateRandomCrossword()">Generate Random Crossword</button>
-    <table>
+    <div id="wordList">
+        <h3>Words to Find:</h3>
+        <ul>
+            <% data.forEach((item) => { %>
+                <li><%= item.word %></li>
+            <% }); %>
+        </ul>
+    </div>
+
+    <table id="crosswordTable">
         <% for (let i = 0; i < grid.length; i++) { %>
             <tr>
                 <% for (let j = 0; j < grid[i].length; j++) { %>
