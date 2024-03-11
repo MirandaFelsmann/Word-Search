@@ -1,3 +1,6 @@
+import User from '../Models/User.js';
+
+
 
 const generateGrid = (words) => {
   const grid = [];
