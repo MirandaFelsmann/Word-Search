@@ -6,6 +6,9 @@ import bcrypt from 'bcrypt';
 import session from 'express-session';
 import passport from 'passport';
 import configurePassport from './config/passport.js';
+import mongoose from 'mongoose';
+import MongoStore from 'connect-mongo';
+
 
 const app = express();
 

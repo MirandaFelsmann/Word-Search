@@ -9,6 +9,7 @@ router.post('/login', auth.verifyLogin);
 router.get('/register', auth.register);
 router.post('/register', auth.verifyRegister);
 router.get('/logout', auth.logout);
+router.post('/changeRole', auth.changeRole);
 
 router.get('/changePassword', auth.changePassword);
 router.post('/updatePassword', auth.updatePassword);

@@ -36,6 +36,7 @@ export const logout = (req, res) => {
 
 // Middleware to check if the user is authenticated
 export const isAuthenticated = (req, res, next) => {
+    console.log(req.isAuthenticated);
   if (req.isAuthenticated()) {
     return next();
   }
