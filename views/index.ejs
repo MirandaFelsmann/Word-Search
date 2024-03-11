@@ -72,5 +72,11 @@ button:hover, select:hover {
             </tr>
         <% } %>
     </table>
+    <h2>Words to Find:</h2>
+    <ul>
+        <% for (let i = 0; i < data.length; i++) { %>
+            <li><%= data[i].word %></li>
+        <% } %>
+    </ul>
 </body>
 </html>

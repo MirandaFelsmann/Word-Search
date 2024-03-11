@@ -51,8 +51,15 @@ export const createCrossword = async (req, res) => {
           const randomWords = randomIndexes.map(index => data[index]);
       console.log(randomWords);
 
-        const grid = generateGrid(randomWords.map(item => item.word));
-    console.log(grid);
+//        const grid = generateGrid(randomWords.map(item => item.word));
+//    console.log(grid);
+      
+      const wordsOnly = randomWords.map(item => item.word); // Extracting only the words
+    console.log(wordsOnly);
+
+    const grid = generateGrid(wordsOnly); // Use the extracted words to generate the grid
+    console.log(grid);
+      
 
     res.render('index', { data: randomWords, grid });
   } catch (error) {
