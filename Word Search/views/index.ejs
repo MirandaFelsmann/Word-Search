@@ -5,20 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crossword</title>
     <style>
-        table {
-            border-collapse: collapse;
-        }
-        td {
-            border: 1px solid black;
-            width: 30px;
-            height: 30px;
-            text-align: center;
-        }
+        body {
+    background-color: #f9e3e3; /* Light pink background color */
+    color: #333; /* Dark text color for better readability */
+    font-family: 'Arial', sans-serif; /* Choose your preferred font family */
+}
+
+h1, h3 {
+    color: #e44d4d; /* Dark pink heading color */
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+td {
+    border: 1px solid #e44d4d; /* Dark pink border for table cells */
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+select, button {
+    margin: 10px 0;
+    padding: 8px;
+    font-size: 16px;
+    background-color: #e44d4d; /* Dark pink background color for dropdown and button */
+    color: #fff; /* White text color for better visibility */
+    border: none;
+    cursor: pointer;
+}
+
+/* Styling for the dropdown arrow */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23ffffff"><path d="M10 12l-7-7 1.5-1.5L10 9l5.5-5.5L17 5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+}
+
+button:hover, select:hover {
+    background-color: #d14242; /* Slightly darker pink on hover */
+}
+
+
     </style>
 </head>
 <body>
     <h1>15x15 Crossword</h1>
-    <h2>Ella</h2>
+<label for="theme">Select a theme:</label>
+    <select id="theme">
+        <option value="soccer">Soccer</option>
+        <option value="baseball">Baseball</option>
+        <option value="hockey">Hockey</option>
+    </select>
+    <button onclick="generateRandomCrossword()">Generate Random Crossword</button>
     <table>
         <% for (let i = 0; i < grid.length; i++) { %>
             <tr>
