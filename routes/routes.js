@@ -15,7 +15,9 @@ router.get('/changePassword', auth.changePassword);
 router.post('/updatePassword', auth.updatePassword);
 
 
-router.get('/', auth.isAuthenticated, ctrl.createCrossword);
+//router.get('/', auth.isAuthenticated, ctrl.createCrossword);
+router.get('/', ctrl.createCrossword);
+
 
 
 export default router;

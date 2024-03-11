@@ -64,6 +64,11 @@ button:hover, select:hover {
         <option id="lacrosse">Lacrosse</option>
     </select>
     <button onclick="generateRandomCrossword()">Generate Random Crossword</button>
+    <form id="themeForm" action="/" method="GET">
+        <label for="theme">Enter a theme word:</label>
+        <input type="text" id="theme" name="theme" required>
+        <button type="submit">Go</button>
+    </form>
     <div id="wordList">
         <h3>Words to Find:</h3>
         <ul>
@@ -82,11 +87,6 @@ button:hover, select:hover {
             </tr>
         <% } %>
     </table>
-    <h2>Words to Find:</h2>
-    <ul>
-        <% for (let i = 0; i < data.length; i++) { %>
-            <li><%= data[i].word %></li>
-        <% } %>
-    </ul>
+
 </body>
 </html>

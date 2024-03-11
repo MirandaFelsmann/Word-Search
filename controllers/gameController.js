@@ -45,28 +45,26 @@ const generateRandomIndexes = (max, count) => {
 
 
 export const createCrossword = async (req, res) => {
-  try {
-    const theme = req.query.theme || 'baseball';
-    const response = await fetch(`https://api.datamuse.com/words?rel_trg=${theme}`);
-    let data = await response.json();
-      
-          const randomIndexes = generateRandomIndexes(data.length, 10); // Get 10 random indexes
-          const randomWords = randomIndexes.map(index => data[index]);
-      console.log(randomWords);
+    try {
+        const theme = req.query.theme || 'baseball'; // Get the theme from query parameter or default to 'baseball'
 
-//        const grid = generateGrid(randomWords.map(item => item.word));
-//    console.log(grid);
-      
-      const wordsOnly = randomWords.map(item => item.word); // Extracting only the words
-    console.log(wordsOnly);
+        // Use the theme from the request as the theme word in the fetch API call
+        const response = await fetch(`https://api.datamuse.com/words?rel_trg=${theme}`);
+        const data = await response.json();
 
-    const grid = generateGrid(wordsOnly); // Use the extracted words to generate the grid
-    console.log(grid);
-      
+        const randomIndexes = generateRandomIndexes(data.length, 10); // Get 10 random indexes
+        const randomWords = randomIndexes.map(index => data[index]);
+        console.log(randomWords);
 
-    res.render('index', { data: randomWords, grid });
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    res.status(500).send('Error fetching data');
-  }
+        const wordsOnly = randomWords.map(item => item.word); // Extracting only the words
+        console.log(wordsOnly);
+
+        const grid = generateGrid(wordsOnly); // Use the extracted words to generate the grid
+        console.log(grid);
+
+        res.render('index', { data: randomWords, grid });
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        res.status(500).send('Error fetching data');
+    }
 };

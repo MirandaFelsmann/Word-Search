@@ -7,8 +7,7 @@ export const login = (req, res) => {
 
 export const verifyLogin = 
   passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/login',
-                                   failureFlash: false });
+                                   failureRedirect: '/login'});
 
 export const register = (req, res) => {
   res.render('register');
@@ -35,13 +34,7 @@ export const logout = (req, res) => {
 }                        
 
 // Middleware to check if the user is authenticated
-export const isAuthenticated = (req, res, next) => {
-    console.log(req.isAuthenticated);
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/login');
-};
+
 
 // Middleware to check for admin role
 export const isAdmin = (req, res, next) => {
@@ -107,3 +100,11 @@ export const updatePassword = async (req, res) => {
         res.status(500).send(error.message);
     }
 }
+
+export const isAuthenticated = (req, res, next) => {
+    console.log(req.isAuthenticated);
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+};
