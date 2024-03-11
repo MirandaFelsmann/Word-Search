@@ -1,0 +1,10 @@
+Checkpoint 1:
+
+    Create a new project with an app.js, package.json, process.env, routes/routes.js, views/index.ejs, public/styles.css, and controllers/gameController.js files
+    Use the DataMuse API 
+
+Links to an external site. to load 10 random words. 
+Use the controller and view files to display your words on the website.
+Write a function in the controller to create a 15x15 2D grid containing your words and filled with random letters. Console.log the grid.
+Update the view so that the grid is displayed on the website.
+Update the controller so that the 10 words are thematic (an option from DataMuse).
