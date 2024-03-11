@@ -35,7 +35,7 @@ const generateGrid = (words) => {
 export const createCrossword = async (req, res) => {
   try {
     const theme = req.query.theme || 'baseball';
-    const response = await fetch(`https://api.datamuse.com/words?rel_trg=${theme}&max=10`);
+    const response = await fetch(`https://api.datamuse.com/words?rel_trg=${theme}`);
     let data = await response.json();
 
     data = data.slice(0, 10);
